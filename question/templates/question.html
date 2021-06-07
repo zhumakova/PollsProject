@@ -1,0 +1,12 @@
+<form method="POST" action="">
+    {% csrf_token %}
+    {% for q in questions %}
+    <p>{{ q.text }}</p>
+    {% endfor %}
+    {{ form.as_p}}
+    {% if request.user.is_authenticated %}
+    <input type="submit">
+    {% else %}
+    <p>Please authorize!To complete poll!</p>
+    {% endif %}
+</form>
